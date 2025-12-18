@@ -6,7 +6,7 @@ This is a highly entertaining interactive game, but even more so, it is a poetry
 
 🛸 **Recommendations**: For the best experience, use a desktop browser in Full Screen (Fn+F11), wear headphones, and play in a dimly lit environment.
 
-👽**Creator Profile**: Cao Seng is a poet and emerging scholar. He earned his PhD in Literature from Fudan University, with an academic background spanning philosophy and Chinese literature. He has published the poetry collections Mountains Swimming Like Whales (群山鲸游，2017) and Wild Pioneer (野先驱，2023). A dedicated literary organizer, he was the founding director of the Fudan Poetry Library. He now curates and leads the independent youth poetry series ϔ Poetry Series (ϔ诗丛) and ϔ Special Issues (ϔ专集).
+👽**Creator Profile**: **Cao Seng** is a poet and emerging scholar. He earned his PhD in Literature from Fudan University, with an academic background spanning philosophy and Chinese literature. He has published the poetry collections Mountains Swimming Like Whales (群山鲸游，2017) and Wild Pioneer (野先驱，2023). A dedicated literary organizer, he was the founding director of the Fudan Poetry Library. He now curates and leads the independent youth poetry series ϔ Poetry Series (ϔ诗丛) and ϔ Special Issues (ϔ专集).
 
 🛰️**E-mail**：caoseng@hotmail.com
 
