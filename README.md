@@ -1,4 +1,4 @@
-**Fantasia Machine: An Interactive Game-style Sci-Fi Poetry Collection (by Cao Seng)**
+**Fantasy Machine: An Interactive Game-style Sci-Fi Poetry Collection (by Cao Seng)**
 
 👨‍🚀 **Game Overview**: You are a Space Knight piloting the fantasy machine Cao Seng, roaming through the ruins of the stars. By collecting lost "Poetry Ores" to refine "Poetry Crystals," you must summon the light of imagination back to your resource-depleted home planet... 
 
