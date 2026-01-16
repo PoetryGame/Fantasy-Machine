@@ -3488,9 +3488,12 @@ function generateAndSaveCardImage(text, type, id) {
         bgGradient.addColorStop(0, `hsl(${hue}, 40%, 15%)`);
         bgGradient.addColorStop(1, `hsl(${hue + 40}, 50%, 5%)`);
     } else {
+        // [修改] 复用正常模式的颜色逻辑：低饱和度、深邃感
+        const seed = parseInt(id) || 0;
+        const hue = (seed * 137.5) % 360; 
         bgGradient = ctx.createLinearGradient(0, 0, width, height);
-        bgGradient.addColorStop(0, '#2a0a1a');
-        bgGradient.addColorStop(1, '#1a050a');
+        bgGradient.addColorStop(0, `hsl(${hue}, 40%, 15%)`);
+        bgGradient.addColorStop(1, `hsl(${hue + 40}, 50%, 5%)`);
     }
 
     // 2. 填充背景
@@ -3541,9 +3544,11 @@ function generateAndSaveCardImage(text, type, id) {
     // 6. 导出并下载
     const dataURL = canvas.toDataURL('image/png');
     const link = document.createElement('a');
-    // 处理文件名，防止特殊字符报错
+    // [修改] 处理文件名：过滤特殊字符并截取前15个字符
     const firstLine = lines[0].trim().replace(/[\\/:*?"<>|]/g, "_").substring(0, 15);
-    link.download = `幻想机_${firstLine}.png`;
+    // [修改] 根据模式确定前缀：正常模式用“幻想机”，拼贴诗模式用“共笔”
+    const prefix = (type === 'normal') ? '幻想机' : '共笔';
+    link.download = `${prefix}_${firstLine}.png`;
     link.href = dataURL;
     document.body.appendChild(link);
     link.click();
@@ -3575,9 +3580,12 @@ function showCrystalCard(index) {
         cardContent.style.borderColor = `hsl(${hue}, 60%, 60%)`;
         cardContent.style.boxShadow = `0 10px 40px hsl(${hue}, 50%, 10%), inset 0 0 60px rgba(0,0,0,0.5)`;
     } else {
-        cardContent.style.background = `linear-gradient(135deg, #2a0a1a, #1a050a)`;
-        cardContent.style.borderColor = `#ff3366`;
-        cardContent.style.boxShadow = `0 10px 40px rgba(255, 51, 102, 0.3), inset 0 0 60px rgba(255, 0, 50, 0.2)`;
+        // [修改] 复用正常模式的预览逻辑：深色边框与柔和光晕
+        const seed = parseInt(item.id) || 0;
+        const hue = (seed * 137.5) % 360;
+        cardContent.style.background = `linear-gradient(135deg, hsl(${hue}, 40%, 15%), hsl(${hue + 40}, 50%, 5%))`;
+        cardContent.style.borderColor = `hsl(${hue}, 80%, 40%)`;
+        cardContent.style.boxShadow = `0 10px 40px hsl(${hue}, 80%, 15%), inset 0 0 60px rgba(0, 0, 0, 0.5)`;
     }
 
     // 4. [修改] 绑定按钮点击事件 (仅更新内存变量)
@@ -3646,7 +3654,9 @@ function completeGroup(groupId) {
 
 function completeCollage() {
     const lines = selectionSlot.map(s => s.txt);
-    collectedItems.push({ type: 'collage', id: null, lines: lines });
+    // [修改] 生成一个随机ID作为颜色种子
+    const randomSeed = Math.floor(Math.random() * 10000); 
+    collectedItems.push({ type: 'collage', id: randomSeed.toString(), lines: lines });
     document.getElementById('ore-num').textContent = collectedItems.length;
     selectionSlot = []; renderSlots();
     showCrystalCard(collectedItems.length - 1);
@@ -3843,4 +3853,3 @@ function animate() {
 </script>
 </body>
 </html>
-
